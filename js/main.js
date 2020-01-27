@@ -1,8 +1,12 @@
 const game = function(wordAPI_error = false) {
-  window.addEventListener("load", resetGame);
-
   //Getting DOM elements
   const randomWord = document.querySelector(".random-word");
+
+  if (wordAPI_error) {
+    randomWord.innerText = "WORD API ERROR, please reload the page";
+    return;
+  }
+
   const inputWord = document.querySelector(".written-word");
   const checkCta = document.querySelector(".check");
   const timeLeft = document.querySelector(".timeleft-value");
@@ -15,11 +19,7 @@ const game = function(wordAPI_error = false) {
   let time = 5;
   let timer = null;
 
-  if (wordAPI_error) {
-    randomWord.innerText = "WORD API ERROR, please reload the page";
-  } else {
-    resetGame();
-  }
+  resetGame();
 
   //When ENTER KEY (13) is pressed down...
 
