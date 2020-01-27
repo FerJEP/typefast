@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>TypeFast</title>
+  </head>
+  <body>
+    <div class="app-wrapper">
+      <header class="header">
+        <h1 class="header-title">TypeFast</h1>
+      </header>
+      <main class="main-wrapper">
+        <div class="game-wrapper">
+          <p class="top-info">
+            Type The Given Word Within
+            <span class="top-info-seconds">5</span> seconds
+          </p>
+          <h1 class="random-word"></h1>
+          <input
+            type="text"
+            name="written-word"
+            class="written-word"
+            placeholder="Start typing..."
+          />
+          <button class="check">
+            <h2 class="check-text">check</h2>
+          </button>
+          <div class="game-info">
+            <h2 class="game-info-timeleft">
+              Time Left: <span class="timeleft-value">0</span>
+            </h2>
+            <h2 class="game-info-score">
+              Score: <span class="score-value">0</span>
+            </h2>
+          </div>
+          <div class="instructions">
+            <h2 class="instructions-title">Instructions</h2>
+            <p class="instructions-text">
+              Type each word in the given amount of seconds and press ENTER key
+              to score. To play again, just type the current word. Your score
+              will reset.
+            </p>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script src="./js/main.js"></script>
+    <script src="./js/words.js"></script>
+  </body>
+</html>

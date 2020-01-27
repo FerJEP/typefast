@@ -1,0 +1,142 @@
+@import "./values";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: $fontfamily;
+  color: map-get($color, font);
+}
+
+html,
+body,
+.app-wrapper {
+  height: 100%;
+}
+
+.app-wrapper {
+  @include displayFlex($direction: column);
+}
+
+.header {
+  @include displayFlex(center, center);
+  padding: $margin;
+  width: 100%;
+  background-color: map-get($color, header);
+
+  &-title {
+    font-size: 2.5rem;
+  }
+}
+
+.main-wrapper {
+  flex: 1;
+  background-color: map-get($color, background);
+}
+
+.game-wrapper {
+  @include displayFlex($i-align: center, $direction: column);
+  max-width: 600px;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.top-info {
+  margin-top: $margin * 2;
+  font-size: 1.2rem;
+  text-align: center;
+
+  &-seconds {
+    color: map-get($color, header);
+  }
+}
+
+.random-word {
+  margin-top: $margin;
+  font-size: 4rem;
+  text-align: center;
+  font-weight: 300;
+  letter-spacing: 0.2rem;
+
+  &.gameover {
+    font-weight: 400;
+    color: rgb(255, 108, 108);
+  }
+}
+
+.written-word {
+  height: 2.5rem;
+  width: 90%;
+  text-align: center;
+  border-radius: $border;
+  outline: none;
+  color: black;
+  font-size: 1em;
+  margin-top: $margin;
+  border: none;
+  transition: background 0.5s ease-out;
+}
+
+.check {
+  margin-top: $margin * 1.2;
+  height: 2.5rem;
+  width: 90%;
+  border-radius: $border;
+  background-color: lightseagreen;
+  outline: none;
+  border: none;
+  cursor: pointer;
+
+  &-text {
+    //display: none;
+    font-weight: 300;
+  }
+}
+
+.game-info {
+  margin: $margin * 3 0;
+  & * {
+    font-weight: 300;
+  }
+}
+
+.instructions {
+  margin-bottom: $margin;
+  padding: $margin;
+  text-align: center;
+  border-radius: $border;
+  background-color: map-get($color, background2);
+
+  &-title {
+    font-weight: 400;
+    border-bottom: 3px solid map-get($color, header);
+    padding-bottom: 5px;
+  }
+  &-text {
+    margin-top: $margin;
+  }
+}
+
+@media all and (max-width: 520px) {
+  .random-word {
+    font-size: 3.5rem;
+  }
+}
+
+@media all and (max-width: 440px) {
+  .random-word {
+    font-size: 3rem;
+  }
+}
+
+@media all and (max-width: 380px) {
+  .random-word {
+    font-size: 2.5rem;
+  }
+}
+
+@media all and (max-width: 330px) {
+  .random-word {
+    font-size: 2rem;
+  }
+}

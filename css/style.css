@@ -1,0 +1,169 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: "Roboto", cursive;
+  color: #fff;
+}
+
+html,
+body,
+.app-wrapper {
+  height: 100%;
+}
+
+.app-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 1rem;
+  width: 100%;
+  background-color: #18923d;
+}
+
+.header-title {
+  font-size: 2.5rem;
+}
+
+.main-wrapper {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  background-color: #292929;
+}
+
+.game-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  max-width: 600px;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.top-info {
+  margin-top: 2rem;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.top-info-seconds {
+  color: #18923d;
+}
+
+.random-word {
+  margin-top: 1rem;
+  font-size: 4rem;
+  text-align: center;
+  font-weight: 300;
+  letter-spacing: 0.2rem;
+}
+
+.random-word.gameover {
+  font-weight: 400;
+  color: #ff6c6c;
+}
+
+.written-word {
+  height: 2.5rem;
+  width: 90%;
+  text-align: center;
+  border-radius: 10px;
+  outline: none;
+  color: black;
+  font-size: 1em;
+  margin-top: 1rem;
+  border: none;
+  -webkit-transition: background 0.5s ease-out;
+  transition: background 0.5s ease-out;
+}
+
+.check {
+  margin-top: 1.2rem;
+  height: 2.5rem;
+  width: 90%;
+  border-radius: 10px;
+  background-color: lightseagreen;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.check-text {
+  font-weight: 300;
+}
+
+.game-info {
+  margin: 3rem 0;
+}
+
+.game-info * {
+  font-weight: 300;
+}
+
+.instructions {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  text-align: center;
+  border-radius: 10px;
+  background-color: #444444;
+}
+
+.instructions-title {
+  font-weight: 400;
+  border-bottom: 3px solid #18923d;
+  padding-bottom: 5px;
+}
+
+.instructions-text {
+  margin-top: 1rem;
+}
+
+@media all and (max-width: 520px) {
+  .random-word {
+    font-size: 3.5rem;
+  }
+}
+
+@media all and (max-width: 440px) {
+  .random-word {
+    font-size: 3rem;
+  }
+}
+
+@media all and (max-width: 380px) {
+  .random-word {
+    font-size: 2.5rem;
+  }
+}
+
+@media all and (max-width: 330px) {
+  .random-word {
+    font-size: 2rem;
+  }
+}
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,28 @@
+$color: (
+  "background": #292929,
+  "background2": #444444,
+  "gameover": rgb(255, 187, 187),
+  "match": rgb(154, 240, 175),
+  "font": #fff,
+  "header": rgb(24, 146, 61)
+);
+
+$fontfamily: "Roboto", cursive;
+$margin: 1rem;
+$border: 10px;
+
+@mixin displayFlex($j-align: auto, $i-align: auto, $direction: row) {
+  display: flex;
+
+  @if $j-align != auto {
+    justify-content: $j-align;
+  }
+
+  @if $i-align !=auto {
+    align-items: $i-align;
+  }
+
+  @if $direction != row {
+    flex-direction: $direction;
+  }
+}
