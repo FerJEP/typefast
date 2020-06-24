@@ -4,6 +4,8 @@ A simple game where you have to type the word that's on the screen before the ti
 
 Made with JavaScript and using [random-word-api](https://random-word-api.herokuapp.com/)
 
+## [LIVE DEMO](https://ferjep.github.io/typefast/)
+
 ## Email
 
 If you have any suggestion or want to contact me, please email to:
