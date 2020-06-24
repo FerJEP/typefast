@@ -1,0 +1,77 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.app {
+  height: 100vh;
+  font-family: 'Lato', sans-serif;
+  text-align: center;
+  background: rgb(12, 12, 12);
+  color: white;
+}
+
+header {
+  background: rgb(99, 219, 99);
+  padding: 1rem 0;
+}
+
+.targetWord {
+  margin: 1rem 0;
+  text-transform: uppercase;
+}
+
+.targetWord.correct {
+  animation: correctAnimation 1s ease;
+}
+
+.targetWord.wrong {
+  animation: wrongAnimation 1s ease;
+}
+
+#typingWrapper {
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+  margin-bottom: 1rem;
+}
+
+#typingInput {
+  display: block;
+  width: 100%;
+  height: 2rem;
+  font-size: 1.2rem;
+  box-sizing: border-box;
+  padding: 10px;
+  text-align: center;
+}
+
+#checkBtn {
+  background: rgb(99, 219, 99);
+  border: none;
+  outline: none;
+  width: 100%;
+  height: 2rem;
+  font-size: 1rem;
+  color: white;
+}
+
+@keyframes correctAnimation {
+  0% {
+    color: rgb(99, 219, 99);
+  }
+
+  100% {
+    color: white;
+  }
+}
+
+@keyframes wrongAnimation {
+  0% {
+    color: rgb(219, 99, 99);
+  }
+
+  100% {
+    color: white;
+  }
+}

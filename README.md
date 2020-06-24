@@ -1,8 +1,8 @@
 # TYPEFAST
 
-This game was made by Fernando Esparragoza (FerJEP) in basic JavaScript and using [random-word-api](https://random-word-api.herokuapp.com/)
+A simple game where you have to type the word that's on the screen before the time ends.
 
-It's meant to be a project for my own portfolio as a Frontend Developer.
+Made with JavaScript and using [random-word-api](https://random-word-api.herokuapp.com/)
 
 ## Email
 
