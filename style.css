@@ -3,40 +3,69 @@
   padding: 0;
 }
 
+:root {
+  --main: rgb(0, 152, 240);
+}
+
 .app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
   height: 100vh;
+  padding: 0 1rem;
+  box-sizing: border-box;
   font-family: 'Lato', sans-serif;
   text-align: center;
-  background: rgb(12, 12, 12);
-  color: white;
+  background: #f3f3f3;
 }
 
-header {
-  background: rgb(99, 219, 99);
-  padding: 1rem 0;
+#header {
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+
+  /* Border */
+  border-left: 5px solid var(--main);
+  border-bottom: 5px solid var(--main);
+  border-right: 5px solid var(--main);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
-.targetWord {
+#header > h1 {
+  padding-bottom: 13px;
+  font-size: 4rem;
+  color: var(--main);
+
+  letter-spacing: 2px;
+}
+
+.targetWord-wrapper {
   margin: 1rem 0;
   text-transform: uppercase;
 }
 
-.targetWord.correct {
+/* Animations aren't implemented yet */
+#header.correct {
   animation: correctAnimation 1s ease;
 }
 
-.targetWord.wrong {
+#header.wrong {
   animation: wrongAnimation 1s ease;
 }
 
-#typingWrapper {
+#inputText-wrapper {
   width: 100%;
   max-width: 300px;
   margin: 0 auto;
   margin-bottom: 1rem;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 2px solid var(--main);
 }
 
-#typingInput {
+#inputText {
   display: block;
   width: 100%;
   height: 2rem;
@@ -44,16 +73,18 @@ header {
   box-sizing: border-box;
   padding: 10px;
   text-align: center;
+  border: none;
 }
 
 #checkBtn {
-  background: rgb(99, 219, 99);
+  background: var(--main);
   border: none;
   outline: none;
   width: 100%;
   height: 2rem;
   font-size: 1rem;
   color: white;
+  cursor: pointer;
 }
 
 @keyframes correctAnimation {

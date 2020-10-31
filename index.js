@@ -1,80 +1,61 @@
 // DOM elements
 
-const DOM = {
-  targetWord: document.getElementById('targetWord'),
-  targetWrapper: document.getElementsByClassName('targetWord')[0],
-  timeleft: document.getElementById('timeleft'),
-  score: document.getElementById('score'),
-  typingInput: document.getElementById('typingInput'),
-  checkBtn: document.getElementById('checkBtn'),
-}
+const $targetWord = document.getElementById('targetWord')
+const $timeleft = document.getElementById('timeleft')
+const $score = document.getElementById('score')
+const $inputText = document.getElementById('inputText')
+const $checkBtn = document.getElementById('checkBtn')
 
 // on screen
-let targetWord = undefined
+let targetWord = null
 let score = 0
 let timeleft = 5
 
-let words = []
-let isPlaying = false
-let timeInterval = undefined
+let interval = null
 
 //Init
 
 window.onload = async () => {
-  await fetchWords()
+  getWord()
 
   // Enabling the input after the first words fetch
-  DOM.typingInput.removeAttribute('disabled')
+  $inputText.removeAttribute('disabled')
 
   // Event Listeners
 
-  DOM.typingInput.addEventListener('keypress', e => {
-    if (e.keyCode === 13) return checkWord()
+  $inputText.addEventListener('keypress', e => {
+    if (e.key === 'Enter') checkWord()
   })
 
-  DOM.checkBtn.addEventListener('click', () => checkWord())
+  $checkBtn.addEventListener('click', () => checkWord())
 }
 
 //Funtions
 
 function checkWord() {
-  const typedWord = DOM.typingInput.value.trim().toLowerCase()
+  const wordTyped = $inputText.value.trim().toLowerCase()
 
-  if (typedWord === targetWord) {
-    if (!isPlaying) startInterval()
-    DOM.typingInput.value = ''
+  if (wordTyped === targetWord) {
+    if (!interval) startInterval()
+    $inputText.value = ''
     score++
     timeleft = 5
-    getTargetWord()
-  } else if (isPlaying) {
-    DOM.typingInput.value = ''
+    getWord()
+  } else if (interval) {
+    $inputText.value = ''
     gameOver()
   }
 }
 
-function fetchWords() {
-  return new Promise((resolve, reject) => {
-    fetch('https://random-word-api.herokuapp.com/word?number=10')
-      .then(res => res.json())
-      .then(apiWords => {
-        words = [...words, ...apiWords]
-        // First time it fetches the targetWord will be empty
-        if (!targetWord) getTargetWord()
-        resolve()
-      })
-      .catch(err => reject(err))
-  })
-}
-
-function getTargetWord() {
-  targetWord = words.shift().toLowerCase()
+function getWord() {
+  const randomIndex = Math.floor(Math.random() * words.length)
+  targetWord = words[randomIndex]
   updateScreen()
-  if (words.length < 5) fetchWords()
 }
 
 function startInterval() {
-  timeInterval = setInterval(() => {
-    if (!isPlaying) isPlaying = true
+  interval = setInterval(() => {
+    if (!interval) interval = true
     if (timeleft === 0) return gameOver()
     timeleft--
     updateScreen()
@@ -82,17 +63,17 @@ function startInterval() {
 }
 
 function gameOver() {
-  clearInterval(timeInterval)
-  DOM.typingInput.value = ''
+  clearInterval(interval)
+  $inputText.value = ''
   timeleft = 5
   score = 0
-  isPlaying = false
-  getTargetWord()
+  interval = false
+  getWord()
 }
 
 function updateScreen() {
-  DOM.targetWord.innerHTML = targetWord
-  DOM.timeleft.innerHTML = timeleft
-  DOM.score.innerHTML = score
+  $targetWord.textContent = targetWord
+  $timeleft.textContent = timeleft
+  $score.textContent = score
   console.log('SCREEN UPDATED')
 }
